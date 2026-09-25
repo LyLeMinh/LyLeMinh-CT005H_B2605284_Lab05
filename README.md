@@ -1,1 +1,1 @@
-# LyLeMinh-CT005H_B2605284_Lab05
+## Lab05_Ex3.2: https://github.com/LyLeMinh/CT005_Lab05
