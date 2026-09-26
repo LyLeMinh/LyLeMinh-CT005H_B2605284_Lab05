@@ -3,241 +3,142 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Giới thiệu thông tin cá nhân | Lab 05</title>
+	<meta name="description" content="Trang giới thiệu infographic và video YouTube nhúng.">
+	<title>Infographic và Video YouTube</title>
 	<style>
 		:root {
-			--navy: #102a43;
-			--blue: #1976d2;
-			--sky: #e8f4ff;
-			--teal: #16a085;
-			--orange: #f28c28;
-			--ink: #243b53;
-			--muted: #627d98;
-			--paper: #f5f8fb;
-			--white: #ffffff;
+			color-scheme: light;
+			--ink: #202a29;
+			--muted: #566562;
+			--paper: #f6f4ee;
+			--surface: #fffefa;
+			--green: #245d4b;
+			--line: #d8ded5;
 		}
 
-		* {
-			box-sizing: border-box;
-		}
+		* { box-sizing: border-box; }
 
 		body {
 			margin: 0;
-			color: var(--ink);
 			background: var(--paper);
-			font-family: "Trebuchet MS", Verdana, sans-serif;
+			color: var(--ink);
+			font-family: "Trebuchet MS", "Segoe UI", sans-serif;
 			line-height: 1.6;
 		}
 
-		.hero {
-			padding: 56px 20px 92px;
-			color: var(--white);
-			background: linear-gradient(135deg, #102a43 0%, #1976d2 58%, #16a085 100%);
-			text-align: center;
+		header {
+			padding: 3rem 1.25rem 2.25rem;
+			background: var(--green);
+			color: #fffefa;
 		}
 
-		.hero h1 {
-			margin: 0 auto 12px;
-			max-width: 780px;
-			font-size: clamp(2rem, 5vw, 3.8rem);
-			line-height: 1.1;
+		.intro, main, footer {
+			width: min(100% - 2rem, 980px);
+			margin-inline: auto;
 		}
 
-		.hero p {
-			margin: 0 auto;
-			max-width: 650px;
-			color: #d9efff;
-			font-size: 1.1rem;
+		.eyebrow {
+			margin: 0 0 .4rem;
+			color: #d9e9d8;
+			font-size: .85rem;
+			font-weight: 700;
+			text-transform: uppercase;
 		}
 
-		main {
-			width: min(1100px, calc(100% - 32px));
-			margin: -48px auto 56px;
+		h1 {
+			max-width: 18ch;
+			margin: 0;
+			font-family: Georgia, "Times New Roman", serif;
+			font-size: clamp(2rem, 5vw, 3.5rem);
+			font-weight: 500;
+			line-height: 1.12;
 		}
 
-		.panel {
-			margin-bottom: 28px;
-			padding: clamp(24px, 5vw, 48px);
-			background: var(--white);
-			border-radius: 18px;
-			box-shadow: 0 14px 35px rgba(16, 42, 67, 0.12);
+		.intro p:last-child {
+			max-width: 62ch;
+			margin: 1rem 0 0;
+			color: #e7eee7;
 		}
 
-		.section-heading {
-			margin: 0 0 8px;
-			color: var(--navy);
-			font-size: clamp(1.5rem, 3vw, 2.2rem);
+		main { padding-block: 2rem 2.5rem; }
+
+		section + section { margin-top: 2.5rem; }
+
+		h2 {
+			margin: 0 0 .85rem;
+			font-family: Georgia, "Times New Roman", serif;
+			font-size: 1.6rem;
+			font-weight: 500;
 		}
 
-		.section-intro {
-			margin: 0 0 26px;
-			color: var(--muted);
-		}
+		figure { margin: 0; }
 
 		.infographic {
 			display: block;
 			width: 100%;
 			height: auto;
-			border: 1px solid #d9e2ec;
-			border-radius: 12px;
-			box-shadow: 0 8px 20px rgba(16, 42, 67, 0.1);
-		}
-
-		.video-frame {
-			overflow: hidden;
-			position: relative;
-			width: 100%;
-			padding-top: 56.25%;
-			border-radius: 12px;
-			background: #0b1728;
-		}
-
-		.video-frame iframe {
-			position: absolute;
-			inset: 0;
-			width: 100%;
-			height: 100%;
-			border: 0;
-		}
-
-		.video-link {
-			display: inline-block;
-			margin-top: 14px;
-			color: var(--blue);
-			font-weight: bold;
-		}
-
-		.profile {
-			display: grid;
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-			gap: 14px 28px;
-			margin: 0;
-		}
-
-		.profile div {
-			padding: 14px 16px;
-			border-left: 4px solid var(--teal);
-			background: var(--sky);
-		}
-
-		.profile dt {
-			color: var(--muted);
-			font-size: 0.85rem;
-			font-weight: bold;
-			text-transform: uppercase;
-		}
-
-		.profile dd {
-			margin: 2px 0 0;
-			color: var(--navy);
-			font-size: 1.05rem;
-			font-weight: bold;
-		}
-
-		.pdf-frame {
-			display: block;
-			width: 100%;
-			height: min(700px, 75vh);
-			border: 1px solid #d9e2ec;
-			border-radius: 12px;
-			background: #eef2f6;
+			border: 1px solid var(--line);
+			background: var(--surface);
 		}
 
 		figcaption {
-			margin-top: 10px;
+			margin-top: .55rem;
 			color: var(--muted);
-			font-size: 0.9rem;
-			text-align: center;
+			font-size: .9rem;
+		}
+
+		.video-frame {
+			width: 100%;
+			aspect-ratio: 16 / 9;
+			border: 0;
+			background: #18201e;
 		}
 
 		footer {
-			padding: 0 20px 32px;
+			padding-block: 1.25rem 2rem;
+			border-top: 1px solid var(--line);
 			color: var(--muted);
-			text-align: center;
-			font-size: 0.9rem;
+			font-size: .9rem;
 		}
 
-		@media (max-width: 700px) {
-			.profile {
-				grid-template-columns: 1fr;
-			}
-
-			.hero {
-				padding-top: 40px;
-				padding-bottom: 76px;
-			}
-
-			main {
-				width: min(100% - 20px, 560px);
-				margin-top: -36px;
-			}
-
-		}
+		footer p { margin: .25rem 0; }
 	</style>
 </head>
 <body>
-	<header class="hero">
-		<h1>Giới thiệu thông tin cá nhân</h1>
-		<p>Hồ sơ học tập và ba sản phẩm thực hành trong Lab 05.</p>
+	<header>
+		<div class="intro">
+			<p class="eyebrow">Lab 05 · Nhiệm vụ 2.2</p>
+			<h1>Infographic và video YouTube</h1>
+			<p>Khám phá nội dung qua infographic Lab05_Ex2.1 và xem video được nhúng trực tiếp bên dưới.</p>
+		</div>
 	</header>
 
 	<main>
-		<section class="panel" aria-labelledby="profile-title">
-			<h2 class="section-heading" id="profile-title">Thông tin cá nhân</h2>
-			<p class="section-intro">Thông tin người thực hiện bài thực hành.</p>
-			<dl class="profile">
-				<div>
-					<dt>Họ và tên</dt>
-					<dd>Lý Lê Minh</dd>
-				</div>
-				<div>
-					<dt>Mã sinh viên</dt>
-					<dd>B2605284</dd>
-				</div>
-				<div>
-					<dt>Lớp / học phần</dt>
-					<dd>CT005H - Lab 05</dd>
-				</div>
-				<div>
-					<dt>Nội dung</dt>
-					<dd>Thiết kế trang web</dd>
-				</div>
-			</dl>
-		</section>
-
-		<section class="panel" aria-labelledby="pdf-title">
-			<h2 class="section-heading" id="pdf-title">Sản phẩm 1: Tài liệu PDF</h2>
-			<p class="section-intro">Tài liệu PDF được nhúng trực tiếp để có thể xem ngay trên trang.</p>
-			<object class="pdf-frame" data="Lab05_Ex1.2.pdf" type="application/pdf" aria-label="Tài liệu Lab05 Ex1.2 PDF">
-				<p>Trình duyệt không hỗ trợ xem PDF trực tiếp. <a href="Lab05_Ex1.2.pdf">Mở tài liệu PDF</a>.</p>
-			</object>
-		</section>
-
-		<section class="panel" aria-labelledby="infographic-title">
-			<h2 class="section-heading" id="infographic-title">Sản phẩm 2: Infographic</h2>
-			<p class="section-intro">Infographic được trình bày rõ ràng để người xem dễ theo dõi nội dung.</p>
+		<section aria-labelledby="infographic-title">
+			<h2 id="infographic-title">Infographic</h2>
 			<figure>
-				<img class="infographic" src="Lab05_Ex2.1.png" alt="Infographic Lab05 Ex2.1">
-				<figcaption>Hình ảnh: Lab05_Ex2.1.png</figcaption>
+				<img class="infographic" src="Lab05_Ex2.1.png" alt="Infographic của bài thực hành Lab 05">
+				<figcaption>Infographic: Lab05_Ex2.1.png</figcaption>
 			</figure>
 		</section>
 
-		<section class="panel" aria-labelledby="video-title">
-			<h2 class="section-heading" id="video-title">Sản phẩm 3: Video YouTube</h2>
-			<p class="section-intro">Xem video để tìm hiểu thêm về chủ đề.</p>
-			<div class="video-frame">
-				<iframe
-					src="https://www.youtube.com/embed/VDTVBxXgewg"
-					title="Video YouTube"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-					referrerpolicy="strict-origin-when-cross-origin"
-					allowfullscreen>
-				</iframe>
-			</div>
-			<a class="video-link" href="https://www.youtube.com/watch?v=VDTVBxXgewg" target="_blank" rel="noopener">Mở video trực tiếp trên YouTube</a>
+		<section aria-labelledby="video-title">
+			<h2 id="video-title">Video YouTube</h2>
+			<iframe
+				class="video-frame"
+				src="https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?rel=0"
+				title="Video demo trình phát nhúng YouTube"
+				loading="lazy"
+				referrerpolicy="strict-origin-when-cross-origin"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				allowfullscreen>
+			</iframe>
 		</section>
 	</main>
 
-	<footer>Lab 05 - Thiết kế trang web với infographic và video. Video thuộc bản quyền của chủ sở hữu trên YouTube; hình ảnh được sử dụng cho mục đích học tập.</footer>
+	<footer>
+		<p><strong>Ghi chú bản quyền:</strong> Infographic sử dụng từ tệp Lab05_Ex2.1.png. Video được nhúng từ YouTube; bản quyền nội dung thuộc về các chủ sở hữu tương ứng.</p>
+		<p>© 2026 LyLeMinh.</p>
+	</footer>
 </body>
 </html>
